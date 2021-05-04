@@ -49,7 +49,7 @@ public class OnEatEvent implements Listener{
 		}
 		
 		// Item is not in the values.yml
-		Main.BroadcastPermission(ChatColor.translateAlternateColorCodes('&', Main.prefixStaff + Main.prefixError + "&4" + p.getDisplayName() + "&c just ate: &4" + item + " &cand it's not in the &4values.yml&c! No special effects have been given."), Main.adminPermission);
+		Main.BroadcastPermission(ChatColor.translateAlternateColorCodes('&', Main.prefixStaff + Main.prefixError + String.format(Main.lang.get("wrongFoodConsumed"), p.getDisplayName(), item)), Main.adminPermission);
 	}
 
 }

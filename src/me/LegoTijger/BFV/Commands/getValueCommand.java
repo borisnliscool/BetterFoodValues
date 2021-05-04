@@ -12,7 +12,7 @@ public class getValueCommand {
 	public static void getValue(Player p, String[] args) {
 		// Check if there's enough arguments
 		if(args.length <= 1) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + "You have to provide more arguments. Usage &4/bfv get <food> <setting>"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + String.format(Main.lang.get("noArguments"))));
 			return;
 		}
 		
@@ -23,20 +23,20 @@ public class getValueCommand {
 		
 		// Check if the food given exists
 		if(config.getString(food) == null) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + "I'm sorry, but I couldn't find &4" + food + "&c in the &4values.yml"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + String.format(Main.lang.get("foodNotFound"), food)));
 			return;
 		}
 		
 		// Check if the setting is food, saturation or damage
 		if(!(setting.equals("food") || setting.equals("saturation") || setting.equals("damage"))) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + "I'm sorry, but I couldn't find &4" + setting + "&c, please pick one of the following: &4food&c, &4saturation &cor &4damage"));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + String.format(Main.lang.get("settingNotFound"), setting)));
 			return;
 		}
 		
 		Double value = config.getDouble(food + "." + setting);
 		
 		// Actually get the value, and send them to the player
-		p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + "The &3" + setting + "&b value of &3" + food + "&b is: &3" + value));
+		p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + String.format(Main.lang.get("foodSettingInfo"), setting, food, value)));
 		
 	}
 	

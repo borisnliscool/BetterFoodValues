@@ -46,13 +46,14 @@ public class ConfigHandler {
 			reloadConfigFile();
 		} catch (IOException e) {
 			// Something went wrong while creating the file
-			Bukkit.getLogger().severe("Something went wrong while trying to create values.yml");
+			Bukkit.getLogger().severe("Something went wrong while trying to save values.yml");
 		}
 	}
 	
 	// Public config reloader
 	public static void reloadConfigFile() {
-		config = YamlConfiguration.loadConfiguration(file);
+		setup();
+		//config = YamlConfiguration.loadConfiguration(file);
 	}
 	
 	// Set all the defaults

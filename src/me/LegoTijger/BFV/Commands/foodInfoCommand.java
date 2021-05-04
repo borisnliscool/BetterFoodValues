@@ -13,7 +13,7 @@ public class foodInfoCommand {
 	public static void showFoodInfo(Player p, String[] args) {
 		// Check if there's a food name provided
 		if(args.length == 0) {
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + "You need to provide a food name."));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + Main.lang.get("noFoodName")));
 			return;
 		}
 		
@@ -32,17 +32,17 @@ public class foodInfoCommand {
 			
 			// Check if food gives damage
 			if(damage != 0) {
-				p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + "&3" + foodName + "&b gives you &3" + (double) food + "&b food points and &3" + (double) saturation + "&b saturation. But be carefull, you could take up to &3" + (double) damage / 2 + "&b hearts of damage when eating this!"));
+				p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + String.format(Main.lang.get("foodFoundWithDamage"), foodName, (double) food, (double) saturation, (double) damage / 2)));
 				return;
 			}
 			
 			// Else send a default message
-			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + "&3" + foodName + "&b gives you &3" + (double) food + "&b food points and &3" + (double) saturation + "&b saturation."));
+			p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefix + String.format(Main.lang.get("foodFoundNoDamage"), foodName, (double) food, (double) saturation)));
 			return;
 		}
 		
 		// Food doesn't exist in the values.yml
-		p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + "I'm sorry, but I couldn't find the food &4" + foodName + "&b!"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.prefixError + String.format(Main.lang.get("foodNotFound"), foodName)));
 	}
 	
 }
