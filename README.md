@@ -4,6 +4,7 @@ It also allows you to add a damage value when eating a food, for instance with u
 You can make a cookie or cake deal some damage on eating.
 
 Download jar file on [SpigotMC.org](https://www.spigotmc.org/resources/better-food-values.92020/)
+Or on github at [releases](https://github.com/borisnliscool/BetterFoodValues/releases)
 
 ## Commands:
 * /bfv help - shows a help menu for the plugin
