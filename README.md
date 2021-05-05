@@ -20,3 +20,4 @@ Or on github at [releases](https://github.com/borisnliscool/BetterFoodValues/rel
 * bfv.admin - main admin permission for the plugin
 
 Any suggestions are welcome, I'm already working on 2.0 which will contain a custom language file, a system to encourage a balanced diet and custom potion effects on eating food.
+Also will be working on being able to eat every item in the game. After making the thing above.
